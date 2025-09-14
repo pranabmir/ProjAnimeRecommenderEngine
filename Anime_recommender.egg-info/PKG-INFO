@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: Anime-recommender
+Version: 0.1
+Author: pranabmir
+Requires-Dist: pandas
+Requires-Dist: numpy
+Dynamic: author
+Dynamic: requires-dist

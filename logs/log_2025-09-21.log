@@ -1,0 +1,36 @@
+2025-09-21 00:27:35,943 - INFO - DataProcessing Initialized
+2025-09-21 00:27:36,776 - INFO - Data loaded successfully
+2025-09-21 00:27:36,913 - INFO - Data filter successfully
+2025-09-21 00:27:38,107 - INFO - Data scaled successfully
+2025-09-21 00:27:38,184 - INFO - User encoded successfully
+2025-09-21 00:27:38,286 - INFO - Anime encoded successfully
+2025-09-21 00:27:38,965 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\data_processing.py, line 85: Data splitting failed
+2025-09-21 00:28:54,883 - INFO - DataProcessing Initialized
+2025-09-21 00:28:55,712 - INFO - Data loaded successfully
+2025-09-21 00:28:55,848 - INFO - Data filter successfully
+2025-09-21 00:28:57,069 - INFO - Data scaled successfully
+2025-09-21 00:28:57,131 - INFO - User encoded successfully
+2025-09-21 00:28:57,226 - INFO - Anime encoded successfully
+2025-09-21 00:28:57,727 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\data_processing.py, line 85: Data splitting failed
+2025-09-21 00:29:31,286 - INFO - DataProcessing Initialized
+2025-09-21 00:29:32,136 - INFO - Data loaded successfully
+2025-09-21 00:29:32,283 - INFO - Data filter successfully
+2025-09-21 00:29:33,524 - INFO - Data scaled successfully
+2025-09-21 00:29:33,585 - INFO - User encoded successfully
+2025-09-21 00:29:33,673 - INFO - Anime encoded successfully
+2025-09-21 00:29:34,166 - INFO - Data Splitting Successful
+2025-09-21 00:29:34,300 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\data_processing.py, line 101: Data splitting failed
+2025-09-21 00:30:26,038 - INFO - DataProcessing Initialized
+2025-09-21 00:30:26,856 - INFO - Data loaded successfully
+2025-09-21 00:30:26,998 - INFO - Data filter successfully
+2025-09-21 00:30:28,235 - INFO - Data scaled successfully
+2025-09-21 00:30:28,294 - INFO - User encoded successfully
+2025-09-21 00:30:28,392 - INFO - Anime encoded successfully
+2025-09-21 00:30:28,892 - INFO - Data Splitting Successful
+2025-09-21 00:30:28,904 - INFO - user2userencoded saved successfull in the directory
+2025-09-21 00:30:28,915 - INFO - user2userdecoded saved successfull in the directory
+2025-09-21 00:30:28,956 - INFO - anime2anime_encoded saved successfull in the directory
+2025-09-21 00:30:28,998 - INFO - anime2anime_decoded saved successfull in the directory
+2025-09-21 00:30:33,780 - INFO - Training and testing datasets save successfully
+2025-09-21 00:30:39,748 - INFO - Anime and synopsis df save successfully
+2025-09-21 00:30:39,748 - INFO - Data processing pipeline completed successfully

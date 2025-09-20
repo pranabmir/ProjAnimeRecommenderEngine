@@ -10,5 +10,6 @@ Requires-Dist: pyyaml
 Requires-Dist: matplotlib
 Requires-Dist: tensorflow
 Requires-Dist: wordcloud
+Requires-Dist: joblib
 Dynamic: author
 Dynamic: requires-dist

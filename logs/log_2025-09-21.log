@@ -1,36 +1,184 @@
-2025-09-21 00:27:35,943 - INFO - DataProcessing Initialized
-2025-09-21 00:27:36,776 - INFO - Data loaded successfully
-2025-09-21 00:27:36,913 - INFO - Data filter successfully
-2025-09-21 00:27:38,107 - INFO - Data scaled successfully
-2025-09-21 00:27:38,184 - INFO - User encoded successfully
-2025-09-21 00:27:38,286 - INFO - Anime encoded successfully
-2025-09-21 00:27:38,965 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\data_processing.py, line 85: Data splitting failed
-2025-09-21 00:28:54,883 - INFO - DataProcessing Initialized
-2025-09-21 00:28:55,712 - INFO - Data loaded successfully
-2025-09-21 00:28:55,848 - INFO - Data filter successfully
-2025-09-21 00:28:57,069 - INFO - Data scaled successfully
-2025-09-21 00:28:57,131 - INFO - User encoded successfully
-2025-09-21 00:28:57,226 - INFO - Anime encoded successfully
-2025-09-21 00:28:57,727 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\data_processing.py, line 85: Data splitting failed
-2025-09-21 00:29:31,286 - INFO - DataProcessing Initialized
-2025-09-21 00:29:32,136 - INFO - Data loaded successfully
-2025-09-21 00:29:32,283 - INFO - Data filter successfully
-2025-09-21 00:29:33,524 - INFO - Data scaled successfully
-2025-09-21 00:29:33,585 - INFO - User encoded successfully
-2025-09-21 00:29:33,673 - INFO - Anime encoded successfully
-2025-09-21 00:29:34,166 - INFO - Data Splitting Successful
-2025-09-21 00:29:34,300 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\data_processing.py, line 101: Data splitting failed
-2025-09-21 00:30:26,038 - INFO - DataProcessing Initialized
-2025-09-21 00:30:26,856 - INFO - Data loaded successfully
-2025-09-21 00:30:26,998 - INFO - Data filter successfully
-2025-09-21 00:30:28,235 - INFO - Data scaled successfully
-2025-09-21 00:30:28,294 - INFO - User encoded successfully
-2025-09-21 00:30:28,392 - INFO - Anime encoded successfully
-2025-09-21 00:30:28,892 - INFO - Data Splitting Successful
-2025-09-21 00:30:28,904 - INFO - user2userencoded saved successfull in the directory
-2025-09-21 00:30:28,915 - INFO - user2userdecoded saved successfull in the directory
-2025-09-21 00:30:28,956 - INFO - anime2anime_encoded saved successfull in the directory
-2025-09-21 00:30:28,998 - INFO - anime2anime_decoded saved successfull in the directory
-2025-09-21 00:30:33,780 - INFO - Training and testing datasets save successfully
-2025-09-21 00:30:39,748 - INFO - Anime and synopsis df save successfully
-2025-09-21 00:30:39,748 - INFO - Data processing pipeline completed successfully
+2025-09-21 18:38:02,495 - INFO - DataProcessing Initialized
+2025-09-21 18:38:03,842 - INFO - Data loaded successfully
+2025-09-21 18:38:03,980 - INFO - Data filter successfully
+2025-09-21 18:38:05,122 - INFO - Data scaled successfully
+2025-09-21 18:38:05,183 - INFO - User encoded successfully
+2025-09-21 18:38:05,266 - INFO - Anime encoded successfully
+2025-09-21 18:38:05,764 - INFO - Data Splitting Successful
+2025-09-21 18:38:05,775 - INFO - user2user_encoded saved successfull in the directory
+2025-09-21 18:38:05,786 - INFO - user2user_decoded saved successfull in the directory
+2025-09-21 18:38:05,826 - INFO - anime2anime_encoded saved successfull in the directory
+2025-09-21 18:38:05,866 - INFO - anime2anime_decoded saved successfull in the directory
+2025-09-21 18:38:10,516 - INFO - Training and testing datasets save successfully
+2025-09-21 18:38:16,402 - INFO - Anime and synopsis df save successfully
+2025-09-21 18:38:16,402 - INFO - Data processing pipeline completed successfully
+2025-09-21 18:42:46,750 - INFO - DataProcessing Initialized
+2025-09-21 18:42:47,555 - INFO - Data loaded successfully
+2025-09-21 18:42:47,696 - INFO - Data filter successfully
+2025-09-21 18:42:48,842 - INFO - Data scaled successfully
+2025-09-21 18:42:48,902 - INFO - User encoded successfully
+2025-09-21 18:42:48,987 - INFO - Anime encoded successfully
+2025-09-21 18:42:49,476 - INFO - Data Splitting Successful
+2025-09-21 18:42:49,638 - INFO - user2user_encoded saved successfull in the directory
+2025-09-21 18:42:49,648 - INFO - user2user_decoded saved successfull in the directory
+2025-09-21 18:42:49,688 - INFO - anime2anime_encoded saved successfull in the directory
+2025-09-21 18:42:49,728 - INFO - anime2anime_decoded saved successfull in the directory
+2025-09-21 18:42:54,046 - INFO - Training and testing datasets save successfully
+2025-09-21 18:42:58,955 - INFO - Anime and synopsis df save successfully
+2025-09-21 18:42:58,955 - INFO - Data processing pipeline completed successfully
+2025-09-21 18:48:13,834 - INFO - DataProcessing Initialized
+2025-09-21 18:48:14,647 - INFO - Data loaded successfully
+2025-09-21 18:48:14,784 - INFO - Data filter successfully
+2025-09-21 18:48:16,011 - INFO - Data scaled successfully
+2025-09-21 18:48:16,074 - INFO - User encoded successfully
+2025-09-21 18:48:16,159 - INFO - Anime encoded successfully
+2025-09-21 18:48:16,680 - INFO - Data Splitting Successful
+2025-09-21 18:48:16,692 - INFO - user2user_encoded saved successfull in the directory
+2025-09-21 18:48:16,703 - INFO - user2user_decoded saved successfull in the directory
+2025-09-21 18:48:16,746 - INFO - anime2anime_encoded saved successfull in the directory
+2025-09-21 18:48:16,788 - INFO - anime2anime_decoded saved successfull in the directory
+2025-09-21 18:48:21,263 - INFO - Training and testing datasets save successfully
+2025-09-21 18:48:26,311 - INFO - Anime and synopsis df save successfully
+2025-09-21 18:48:26,311 - INFO - Data processing pipeline completed successfully
+2025-09-21 18:49:32,541 - INFO - Model training and Comet ML initialized
+2025-09-21 18:49:32,628 - INFO - Data loaded successfully for model training
+2025-09-21 18:49:32,666 - INFO - Successfully read yaml file
+2025-09-21 18:49:32,666 - INFO - Configuration loaded from config.yaml
+2025-09-21 18:49:32,753 - INFO - Model created successfully
+2025-09-21 18:52:22,885 - INFO - Model training and Comet ML initialized
+2025-09-21 18:52:22,972 - INFO - Data loaded successfully for model training
+2025-09-21 18:52:23,009 - INFO - Successfully read yaml file
+2025-09-21 18:52:23,009 - INFO - Configuration loaded from config.yaml
+2025-09-21 18:52:23,096 - INFO - Model created successfully
+2025-09-21 18:54:51,883 - INFO - Model training and Comet ML initialized
+2025-09-21 18:55:51,754 - INFO - Model training and Comet ML initialized
+2025-09-21 18:55:51,845 - INFO - Data loaded successfully for model training
+2025-09-21 18:55:52,018 - INFO - Successfully read yaml file
+2025-09-21 18:55:52,018 - INFO - Configuration loaded from config.yaml
+2025-09-21 18:55:52,102 - INFO - Model created successfully
+2025-09-21 18:57:03,692 - INFO - Model training and Comet ML initialized
+2025-09-21 18:57:03,750 - INFO - Data loaded successfully for model training
+2025-09-21 18:57:03,780 - INFO - Successfully read yaml file
+2025-09-21 18:57:03,780 - INFO - Configuration loaded from config.yaml
+2025-09-21 18:57:04,043 - INFO - Model created successfully
+2025-09-21 19:00:52,656 - INFO - Model training Completed
+2025-09-21 19:01:04,646 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='www.comet.com', port=443): Read timed out. (read timeout=10)")': /clientlib/rest/v2/write/experiment/output
+2025-09-21 19:40:42,010 - WARNING - Retrying (RetryWithFullJitter(total=9, connect=4, read=9, redirect=None, status=4)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='www.comet.com', port=443): Read timed out. (read timeout=10)")': /clientlib/logger/add/run
+2025-09-21 19:40:57,072 - INFO - Model training and Comet ML initialized
+2025-09-21 19:40:57,155 - INFO - Data loaded successfully for model training
+2025-09-21 19:40:57,193 - INFO - Successfully read yaml file
+2025-09-21 19:40:57,193 - INFO - Configuration loaded from config.yaml
+2025-09-21 19:40:57,284 - INFO - Model created successfully
+2025-09-21 19:41:18,884 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='www.comet.com', port=443): Read timed out. (read timeout=10)")': /clientlib/rest/v2/write/experiment/system-details
+2025-09-21 19:43:35,628 - INFO - Model training and Comet ML initialized
+2025-09-21 19:43:35,712 - INFO - Data loaded successfully for model training
+2025-09-21 19:43:35,750 - INFO - Successfully read yaml file
+2025-09-21 19:43:35,750 - INFO - Configuration loaded from config.yaml
+2025-09-21 19:43:35,832 - INFO - Model created successfully
+2025-09-21 19:47:18,084 - INFO - Model training Completed
+2025-09-21 19:55:25,766 - INFO - Model training and Comet ML initialized
+2025-09-21 19:55:25,855 - INFO - Data loaded successfully for model training
+2025-09-21 19:55:25,894 - INFO - Successfully read yaml file
+2025-09-21 19:55:25,894 - INFO - Configuration loaded from config.yaml
+2025-09-21 19:55:25,972 - INFO - Model created successfully
+2025-09-21 19:59:00,610 - INFO - Model training Completed
+2025-09-21 19:59:00,612 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-09-21 19:59:00,762 - INFO - Model save to artifacts\model\model.h5
+2025-09-21 19:59:00,764 - ERROR - 'numpy.ndarray' object has no attribute 'np'
+2025-09-21 19:59:00,764 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\model_training.py, line 103: Error during weights extraction
+2025-09-21 19:59:00,764 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\model_training.py, line 115: Error during saving model and weights Process
+2025-09-21 20:09:01,886 - INFO - Model training and Comet ML initialized
+2025-09-21 20:09:01,970 - INFO - Data loaded successfully for model training
+2025-09-21 20:09:02,007 - INFO - Successfully read yaml file
+2025-09-21 20:09:02,007 - INFO - Configuration loaded from config.yaml
+2025-09-21 20:09:02,094 - INFO - Model created successfully
+2025-09-21 20:09:14,639 - INFO - Model training Completed
+2025-09-21 20:09:14,639 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-09-21 20:09:14,726 - INFO - Model save to artifacts/model\model.h5
+2025-09-21 20:09:14,727 - ERROR - 'numpy.ndarray' object has no attribute 'np'
+2025-09-21 20:09:14,727 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\model_training.py, line 103: Error during weights extraction
+2025-09-21 20:09:14,727 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\model_training.py, line 115: Error during saving model and weights Process
+2025-09-21 20:10:14,989 - INFO - Model training and Comet ML initialized
+2025-09-21 20:10:15,077 - INFO - Data loaded successfully for model training
+2025-09-21 20:10:15,114 - INFO - Successfully read yaml file
+2025-09-21 20:10:15,114 - INFO - Configuration loaded from config.yaml
+2025-09-21 20:10:15,201 - INFO - Model created successfully
+2025-09-21 20:10:27,699 - INFO - Model training Completed
+2025-09-21 20:10:27,700 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-09-21 20:10:28,043 - INFO - Model save to artifacts/model\model.h5
+2025-09-21 20:10:28,044 - ERROR - 'numpy.ndarray' object has no attribute 'np'
+2025-09-21 20:10:28,044 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\model_training.py, line 103: Error during weights extraction
+2025-09-21 20:10:28,044 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\model_training.py, line 115: Error during saving model and weights Process
+2025-09-21 20:13:14,823 - INFO - Model training and Comet ML initialized
+2025-09-21 20:13:14,908 - INFO - Data loaded successfully for model training
+2025-09-21 20:13:14,947 - INFO - Successfully read yaml file
+2025-09-21 20:13:14,947 - INFO - Configuration loaded from config.yaml
+2025-09-21 20:13:15,071 - INFO - Model created successfully
+2025-09-21 20:13:27,564 - INFO - Model training Completed
+2025-09-21 20:13:27,564 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-09-21 20:13:27,646 - INFO - Model save to artifacts/model\model.h5
+2025-09-21 20:13:27,646 - ERROR - 'numpy.ndarray' object has no attribute 'np'
+2025-09-21 20:13:27,646 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\model_training.py, line 103: Error during weights extraction
+2025-09-21 20:13:27,646 - ERROR - Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\model_training.py, line 115: Error during saving model and weights Process
+2025-09-21 20:14:46,371 - INFO - Model training and Comet ML initialized
+2025-09-21 20:14:46,457 - INFO - Data loaded successfully for model training
+2025-09-21 20:14:46,493 - INFO - Successfully read yaml file
+2025-09-21 20:14:46,494 - INFO - Configuration loaded from config.yaml
+2025-09-21 20:14:46,575 - INFO - Model created successfully
+2025-09-21 20:14:59,121 - INFO - Model training Completed
+2025-09-21 20:14:59,121 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-09-21 20:14:59,277 - INFO - Model save to artifacts/model\model.h5
+2025-09-21 20:14:59,292 - INFO - Extracting weights for user_embedding
+2025-09-21 20:14:59,298 - INFO - Extracting weights for anime_embedding
+2025-09-21 20:14:59,338 - INFO - User and Anime weights saved sucesfully....
+2025-09-21 20:20:32,644 - INFO - Model training and Comet ML initialized
+2025-09-21 20:20:32,772 - INFO - Data loaded successfully for model training
+2025-09-21 20:20:32,839 - INFO - Successfully read yaml file
+2025-09-21 20:20:32,840 - INFO - Configuration loaded from config.yaml
+2025-09-21 20:20:33,023 - INFO - Model created successfully
+2025-09-21 20:24:14,828 - INFO - Model training Completed
+2025-09-21 20:24:14,830 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-09-21 20:24:14,939 - INFO - Model save to artifacts/model\model.h5
+2025-09-21 20:24:14,947 - INFO - Extracting weights for user_embedding
+2025-09-21 20:24:14,956 - INFO - Extracting weights for anime_embedding
+2025-09-21 20:24:14,993 - INFO - User and Anime weights saved sucesfully....
+2025-09-21 21:59:53,513 - INFO - DataProcessing Initialized
+2025-09-21 21:59:54,703 - INFO - Data loaded successfully
+2025-09-21 21:59:55,032 - INFO - Data filter successfully
+2025-09-21 21:59:56,543 - INFO - Data scaled successfully
+2025-09-21 21:59:56,620 - INFO - User encoded successfully
+2025-09-21 21:59:56,702 - INFO - Anime encoded successfully
+2025-09-21 21:59:57,925 - INFO - Data Splitting Successful
+2025-09-21 21:59:57,936 - INFO - user2user_encoded saved successfull in the directory
+2025-09-21 21:59:57,946 - INFO - user2user_decoded saved successfull in the directory
+2025-09-21 21:59:57,985 - INFO - anime2anime_encoded saved successfull in the directory
+2025-09-21 21:59:58,025 - INFO - anime2anime_decoded saved successfull in the directory
+2025-09-21 22:00:02,519 - INFO - Training and testing datasets save successfully
+2025-09-21 22:00:08,219 - INFO - Anime and synopsis df save successfully
+2025-09-21 22:00:08,219 - INFO - Data processing pipeline completed successfully
+2025-09-21 22:00:17,621 - INFO - Model training and Comet ML initialized
+2025-09-21 22:00:55,636 - INFO - DataProcessing Initialized
+2025-09-21 22:00:56,424 - INFO - Data loaded successfully
+2025-09-21 22:00:56,569 - INFO - Data filter successfully
+2025-09-21 22:00:57,708 - INFO - Data scaled successfully
+2025-09-21 22:00:57,768 - INFO - User encoded successfully
+2025-09-21 22:00:57,850 - INFO - Anime encoded successfully
+2025-09-21 22:00:58,291 - INFO - Data Splitting Successful
+2025-09-21 22:00:58,302 - INFO - user2user_encoded saved successfull in the directory
+2025-09-21 22:00:58,312 - INFO - user2user_decoded saved successfull in the directory
+2025-09-21 22:00:58,351 - INFO - anime2anime_encoded saved successfull in the directory
+2025-09-21 22:00:58,390 - INFO - anime2anime_decoded saved successfull in the directory
+2025-09-21 22:01:02,697 - INFO - Training and testing datasets save successfully
+2025-09-21 22:01:07,577 - INFO - Anime and synopsis df save successfully
+2025-09-21 22:01:07,577 - INFO - Data processing pipeline completed successfully
+2025-09-21 22:01:16,338 - INFO - Model training and Comet ML initialized
+2025-09-21 22:01:16,420 - INFO - Data loaded successfully for model training
+2025-09-21 22:01:16,468 - INFO - Successfully read yaml file
+2025-09-21 22:01:16,468 - INFO - Configuration loaded from config.yaml
+2025-09-21 22:01:16,561 - INFO - Model created successfully
+2025-09-21 22:04:45,935 - INFO - Model training Completed
+2025-09-21 22:04:45,937 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-09-21 22:04:46,209 - INFO - Model save to artifacts/model\model.h5
+2025-09-21 22:04:46,211 - INFO - Extracting weights for user_embedding
+2025-09-21 22:04:46,218 - INFO - Extracting weights for anime_embedding
+2025-09-21 22:04:46,248 - INFO - User and Anime weights saved sucesfully....

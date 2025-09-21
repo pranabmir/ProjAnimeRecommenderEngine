@@ -76,14 +76,12 @@ class DataProcessor():
         try:
             self.rating_df = self.rating_df.sample(frac=1,random_state=random_state).reset_index(drop=True)
             x = self.rating_df[['user','anime']]
-            y = self.rating_df[['rating']]
+            y = self.rating_df['rating']
             split_index = self.rating_df.shape[0]-test_size
-            x_train,x_test,y_train,y_test = (x[:split_index],
-                                            x[split_index:],
-                                            y[:split_index],
-                                            y[split_index:])
-            self.x_train_array = [x_train.loc[:,'user'].to_numpy(),x_train.loc[:,'anime'].to_numpy()]
-            self.x_test_array = [x_test.loc[:,'user'].to_numpy(),x_test.loc[:,'anime'].to_numpy()]
+            self.x_train,self.x_test = x[:split_index],x[split_index:]
+            self.y_train,self.y_test = y[:split_index],y[split_index:]
+            self.x_train_array = [self.x_train.loc[:,'user'].to_numpy(),self.x_train.loc[:,'anime'].to_numpy()]
+            self.x_test_array = [self.x_test.loc[:,'user'].to_numpy(),self.x_test.loc[:,'anime'].to_numpy()]
             logger.info('Data Splitting Successful')
         except Exception as e:
             raise CustomException("Data splitting failed",e)
@@ -91,10 +89,10 @@ class DataProcessor():
     def save_artifacts(self):
         try:
             artifacts = {
-                "user2userencoded":self.user2user_encoded,
-                "user2userdecoded": self.user2user_decoded,
-                "anime2anime_encoded": self.anime2anime_encoded,
-                "anime2anime_decoded": self.anime2anime_decoded
+                user2user_encoded_filename:self.user2user_encoded,
+                user2user_decoded_filename: self.user2user_decoded,
+                anime2anime_encoded_filename: self.anime2anime_encoded,
+                anime2anime_decoded_filename: self.anime2anime_decoded
             }
             for name, data  in artifacts.items():
                 joblib.dump(data,os.path.join(self.output_dir,f"{name}.pkl"))

@@ -11,5 +11,7 @@ Requires-Dist: matplotlib
 Requires-Dist: tensorflow
 Requires-Dist: wordcloud
 Requires-Dist: joblib
+Requires-Dist: comet-ml
+Requires-Dist: dvc
 Dynamic: author
 Dynamic: requires-dist

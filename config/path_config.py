@@ -6,10 +6,10 @@ CONFIG_PATH = "config/config.yaml"
 KEY_PATH = "gcp_key/aerial-day-470509-c5-a038d47b7460.json"
 
 #data processing paths
-PROCESSED_DIR = 'artifacts/processed'
-ANIMELIST_CSV = 'artifacts/raw/animelist.csv'
-ANIME_CSV = 'artifacts/raw/anime.csv'
-SYNONPSIS_CSV = 'artifacts/raw/anime_with_synopsis.csv'
+PROCESSED_DIR = os.path.join('artifacts','processed')
+ANIMELIST_CSV = os.path.join('artifacts','raw','animelist.csv')
+ANIME_CSV = os.path.join('artifacts','raw','anime.csv')
+SYNONPSIS_CSV = os.path.join('artifacts','raw','anime_with_synopsis.csv')
 
 X_TRAIN_ARRAY = os.path.join('artifacts','processed','x_train_array.pkl')
 X_TEST_ARRAY = os.path.join('artifacts','processed','x_test_array.pkl')

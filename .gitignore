@@ -7,3 +7,4 @@ artifacts/model_checkpoint
 artifacts/weights
 .dvc
 .dvcignore
+test.py

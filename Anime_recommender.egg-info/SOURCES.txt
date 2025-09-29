@@ -8,6 +8,7 @@ Anime_recommender.egg-info/top_level.txt
 config/__init__.py
 config/path_config.py
 pipeline/__init__.py
+pipeline/prediction_pipeline.py
 pipeline/training_pipeline.py
 src/__init__.py
 src/base_model.py
@@ -18,3 +19,4 @@ src/logger.py
 src/model_training.py
 utils/__init__.py
 utils/common_functions.py
+utils/helpers.py

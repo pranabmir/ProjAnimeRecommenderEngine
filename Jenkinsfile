@@ -114,19 +114,19 @@ pipeline {
             }
         }
 
-        // stage("Setup Virtual Environment") {
-        //     steps {
-        //         script {
-        //             echo 'Setting up virtual environment...'
-        //             sh """
-        //                 python -m venv ${VENV_DIR}
-        //                 ${VENV_DIR}/bin/pip install --upgrade pip
-        //                 ${VENV_DIR}/bin/pip install -e .
-        //                 ${VENV_DIR}/bin/pip install dvc
-        //             """
-        //         }
-        //     }
-        // }
+        stage("Setup Virtual Environment") {
+            steps {
+                script {
+                    echo 'Setting up virtual environment...'
+                    sh """
+                        python -m venv ${VENV_DIR}
+                        ${VENV_DIR}/bin/pip install --upgrade pip
+                        ${VENV_DIR}/bin/pip install -e .
+                        ${VENV_DIR}/bin/pip install dvc
+                    """
+                }
+            }
+        }
 
         // stage("DVC Pull") {
         //     steps {

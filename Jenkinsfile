@@ -34,7 +34,7 @@ pipeline {
         }
 
 
-        sstage('DVC Pull') {
+        stage('DVC Pull') {
             steps {
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                     sh '''

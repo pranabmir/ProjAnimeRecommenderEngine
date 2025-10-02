@@ -3,52 +3,52 @@ pipeline {
 
     environment {
         VENV_DIR = 'venv'
-        GCP_PROJECT = 'aerial-day-470509-c5'
-        GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
-        KUBECTL_AUTH_PLUGIN = "/usr/lib/google-cloud-sdk/bin"
+        GCP_PROJECT = 'mlops-new-447207'
+        GCLOUD_PATH = "C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin"
+        KUBECTL_AUTH_PLUGIN = "C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin"
     }
 
-    stages{
+    stages {
 
-        stage("Cloning from Github...."){
-            steps{
-                script{
+        stage("Cloning from Github") {
+            steps {
+                script {
                     echo 'Cloning from Github...'
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token2', url: 'https://github.com/pranabmir/ProjAnimeRecommenderEngine.git']])                }
-            }
-        }
-
-        stage("Making a virtual environment...."){
-            steps{
-                script{
-                    echo 'Making a virtual environment...'
-                    sh '''
-                    python -m venv ${VENV_DIR}
-                    . ${VENV_DIR}/bin/activate
-                    pip install --upgrade pip
-                    pip install -e .
-                    pip install  dvc
-                    '''
+                    checkout scmGit(
+                        branches: [[name: '*/main']],
+                        extensions: [],
+                        userRemoteConfigs: [[
+                            credentialsId: 'github-token2',
+                            url: 'https://github.com/pranabmir/ProjAnimeRecommenderEngine.git'
+                        ]]
+                    )
                 }
             }
         }
 
-        stage('DVC Pull'){
-            steps{
-                withCredentials([file(credentialsId:'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]){
-                    script{
-                        echo 'DVC Pull....'
-                        sh """
-                        # Activate virtual environment
-                        . ${VENV_DIR}/bin/activate
+        stage("Setting up Virtual Environment") {
+            steps {
+                script {
+                    echo 'Creating virtual environment and installing dependencies...'
+                    bat """
+                    python -m venv %VENV_DIR%
+                    call %VENV_DIR%\\Scripts\\activate
+                    pip install --upgrade pip
+                    pip install -e .
+                    pip install "dvc[gcs]"
+                    """
+                }
+            }
+        }
 
-                        # Export GCP credentials
-                        export GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
-
-                        # Ensure dvc has GCS support
-                        pip install --upgrade "dvc[gcs]"
-
-                        # Pull data
+        stage("DVC Pull") {
+            steps {
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+                    script {
+                        echo 'Pulling data with DVC...'
+                        bat """
+                        call %VENV_DIR%\\Scripts\\activate
+                        set GOOGLE_APPLICATION_CREDENTIALS=%GOOGLE_APPLICATION_CREDENTIALS%
                         dvc pull
                         """
                     }
@@ -56,53 +56,36 @@ pipeline {
             }
         }
 
-
-        // stage('DVC Pull'){
-        //     steps{
-        //         withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
-        //             script{
-        //                 echo 'DVC Pul....'
-        //                 sh '''
-        //                 . ${VENV_DIR}/bin/activate
-        //                 dvc pull
-        //                 '''
-        //             }
-        //         }
-        //     }
-        // }
-
-
-        // stage('Build and Push Image to GCR'){
-        //     steps{
-        //         withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
-        //             script{
-        //                 echo 'Build and Push Image to GCR'
-        //                 sh '''
-        //                 export PATH=$PATH:${GCLOUD_PATH}
-        //                 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
+        // stage("Build and Push Docker Image to GCR") {
+        //     steps {
+        //         withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+        //             script {
+        //                 echo 'Building and pushing Docker image to GCR...'
+        //                 bat """
+        //                 set PATH=%PATH%;${GCLOUD_PATH}
+        //                 gcloud auth activate-service-account --key-file=%GOOGLE_APPLICATION_CREDENTIALS%
         //                 gcloud config set project ${GCP_PROJECT}
         //                 gcloud auth configure-docker --quiet
         //                 docker build -t gcr.io/${GCP_PROJECT}/ml-project:latest .
         //                 docker push gcr.io/${GCP_PROJECT}/ml-project:latest
-        //                 '''
+        //                 """
         //             }
         //         }
         //     }
         // }
 
-
-        // stage('Deploying to Kubernetes'){
-        //     steps{
-        //         withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
-        //             script{
-        //                 echo 'Deploying to Kubernetes'
-        //                 sh '''
-        //                 export PATH=$PATH:${GCLOUD_PATH}:${KUBECTL_AUTH_PLUGIN}
-        //                 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
+        // stage("Deploying to Kubernetes") {
+        //     steps {
+        //         withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+        //             script {
+        //                 echo 'Deploying to Kubernetes...'
+        //                 bat """
+        //                 set PATH=%PATH%;${GCLOUD_PATH};${KUBECTL_AUTH_PLUGIN}
+        //                 gcloud auth activate-service-account --key-file=%GOOGLE_APPLICATION_CREDENTIALS%
         //                 gcloud config set project ${GCP_PROJECT}
         //                 gcloud container clusters get-credentials ml-app-cluster --region us-central1
         //                 kubectl apply -f deployment.yaml
-        //                 '''
+        //                 """
         //             }
         //         }
         //     }

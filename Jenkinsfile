@@ -1,110 +1,22 @@
-// pipeline {
-//     agent any
-
-//     environment {
-//         VENV_DIR = 'venv'
-//         // GCP_PROJECT = 'mlops-new-447207'
-//         // GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
-//         // KUBECTL_AUTH_PLUGIN = "/usr/lib/google-cloud-sdk/bin"
-//     }
-
-//     stages{
-
-//         stage("Cloning from Github...."){
-//             steps{
-//                 script{
-//                     echo 'Cloning from Github...'
-//                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token2', url: 'https://github.com/pranabmir/ProjAnimeRecommenderEngine.git']])
-//                 }
-//             }
-//         }
-
-//         stage("Making a virtual environment...."){
-//             steps{
-//                 script{
-//                     echo 'Making a virtual environment...'
-//                     sh '''
-//                     python -m venv ${VENV_DIR}
-//                     . ${VENV_DIR}/bin/activate
-//                     pip install --upgrade pip
-//                     pip install -e .
-//                     pip install  dvc
-//                     '''
-//                 }
-//             }
-//         }
-
-
-//         stage('DVC Pull'){
-//             steps{
-//                 withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
-//                     script{
-//                         echo 'DVC Pul....'
-//                         sh '''
-//                         . ${VENV_DIR}/bin/activate
-//                         dvc pull
-//                         '''
-//                     }
-//                 }
-//             }
-//         }
-
-
-        // stage('Build and Push Image to GCR'){
-        //     steps{
-        //         withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
-        //             script{
-        //                 echo 'Build and Push Image to GCR'
-        //                 sh '''
-        //                 export PATH=$PATH:${GCLOUD_PATH}
-        //                 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
-        //                 gcloud config set project ${GCP_PROJECT}
-        //                 gcloud auth configure-docker --quiet
-        //                 docker build -t gcr.io/${GCP_PROJECT}/ml-project:latest .
-        //                 docker push gcr.io/${GCP_PROJECT}/ml-project:latest
-        //                 '''
-        //             }
-        //         }
-        //     }
-        // }
-
-
-        // stage('Deploying to Kubernetes'){
-        //     steps{
-        //         withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
-        //             script{
-        //                 echo 'Deploying to Kubernetes'
-        //                 sh '''
-        //                 export PATH=$PATH:${GCLOUD_PATH}:${KUBECTL_AUTH_PLUGIN}
-        //                 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
-        //                 gcloud config set project ${GCP_PROJECT}
-        //                 gcloud container clusters get-credentials ml-app-cluster --region us-central1
-        //                 kubectl apply -f deployment.yaml
-        //                 '''
-        //             }
-        //         }
-        //     }
-        // }
-//     }
-// }
-
 pipeline {
     agent any
 
     environment {
         VENV_DIR = 'venv'
-        // GCP_PROJECT = 'mlops-new-447207'   // uncomment when using GCP stages
+        GCP_PROJECT = 'aerial-day-470509-c5'
+        GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
+        KUBECTL_AUTH_PLUGIN = "/usr/lib/google-cloud-sdk/bin"
     }
 
     stages {
 
-        stage("Clone from GitHub") {
+        stage("Cloning from Github") {
             steps {
                 script {
-                    echo 'Cloning repository...'
+                    echo 'Cloning from Github...'
                     checkout scmGit(
                         branches: [[name: '*/main']],
-                        extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.']],
+                        extensions: [],
                         userRemoteConfigs: [[
                             credentialsId: 'github-token2',
                             url: 'https://github.com/pranabmir/ProjAnimeRecommenderEngine.git'
@@ -114,67 +26,65 @@ pipeline {
             }
         }
 
-        stage("Setup Virtual Environment") {
+        stage("Making a virtual environment") {
             steps {
                 script {
-                    echo 'Setting up virtual environment...'
+                    echo 'Creating virtual environment...'
                     sh """
-                        python -m venv ${VENV_DIR}
-                        ${VENV_DIR}/bin/pip install --upgrade pip
-                        ${VENV_DIR}/bin/pip install -e .
-                        ${VENV_DIR}/bin/pip install dvc
+                    python -m venv ${VENV_DIR}
+                    . ${VENV_DIR}/bin/activate
+                    pip install --upgrade pip
+                    pip install -e .
+                    pip install dvc
                     """
                 }
             }
         }
 
-        stage("DVC Pull") {
+        stage('DVC Pull') {
             steps {
-            withCredentials([file(credentialsId: 'gcp-key', variable: 'GCP_KEY_FILE')]) {
-                script {
-                    sh """
-                        echo "Using GCP credentials at: \$GCP_KEY_FILE"
-                        export GOOGLE_APPLICATION_CREDENTIALS=\$GCP_KEY_FILE
-                        # Optional: check access
-                        gsutil ls gs://projanimerecommenderdvc
-                        # Activate virtual env
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+                    script {
+                        echo 'Running DVC pull...'
+                        sh """
                         . ${VENV_DIR}/bin/activate
-                        # Pull data
-                        dvc pull -v
-                    """
+                        export GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
+                        dvc pull
+                        """
+                    }
                 }
             }
         }
-    }
 
-
-        // stage("Build and Push Image to GCR") {
+        // stage('Build and Push Image to GCR') {
         //     steps {
-        //         withCredentials([file(credentialsId:'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+        //         withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
         //             script {
-        //                 echo 'Building and pushing Docker image...'
+        //                 echo 'Building and pushing Docker image to GCR...'
         //                 sh """
-        //                     gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
-        //                     gcloud config set project ${GCP_PROJECT}
-        //                     gcloud auth configure-docker --quiet
-        //                     docker build -t gcr.io/${GCP_PROJECT}/ml-project:latest .
-        //                     docker push gcr.io/${GCP_PROJECT}/ml-project:latest
+        //                 export PATH=\$PATH:${GCLOUD_PATH}
+        //                 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
+        //                 gcloud config set project ${GCP_PROJECT}
+        //                 gcloud auth configure-docker --quiet
+        //                 docker build -t gcr.io/${GCP_PROJECT}/ml-project:latest .
+        //                 docker push gcr.io/${GCP_PROJECT}/ml-project:latest
         //                 """
         //             }
         //         }
         //     }
         // }
 
-        // stage("Deploy to Kubernetes") {
+        // stage('Deploying to Kubernetes') {
         //     steps {
-        //         withCredentials([file(credentialsId:'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+        //         withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
         //             script {
         //                 echo 'Deploying to Kubernetes...'
         //                 sh """
-        //                     gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
-        //                     gcloud config set project ${GCP_PROJECT}
-        //                     gcloud container clusters get-credentials ml-app-cluster --region us-central1
-        //                     kubectl apply -f deployment.yaml
+        //                 export PATH=\$PATH:${GCLOUD_PATH}:${KUBECTL_AUTH_PLUGIN}
+        //                 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
+        //                 gcloud config set project ${GCP_PROJECT}
+        //                 gcloud container clusters get-credentials ml-app-cluster --region us-central1
+        //                 kubectl apply -f deployment.yaml
         //                 """
         //             }
         //         }

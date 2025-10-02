@@ -17,6 +17,11 @@ RUN apt-get update -y && \
 RUN groupadd -f docker && \
     usermod -aG docker jenkins
 
+# Install Google Cloud SDK (gcloud + gsutil)
+RUN curl -sSL https://sdk.cloud.google.com | bash && \
+    ln -s /root/google-cloud-sdk/bin/gcloud /usr/bin/gcloud && \
+    ln -s /root/google-cloud-sdk/bin/gsutil /usr/bin/gsutil
+
 # Create the Docker directory and volume for DinD
 RUN mkdir -p /var/lib/docker
 VOLUME /var/lib/docker

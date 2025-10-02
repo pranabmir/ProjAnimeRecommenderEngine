@@ -130,17 +130,20 @@ pipeline {
 
         stage("DVC Pull") {
             steps {
-                withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'GCP_KEY_FILE')]) {
                     script {
                         echo 'Running DVC pull...'
                         sh """
+                            export GOOGLE_APPLICATION_CREDENTIALS=$GCP_KEY_FILE
+                            echo "Using credentials at: \$GOOGLE_APPLICATION_CREDENTIALS"
                             ls -la .
-                            ${VENV_DIR}/bin/dvc pull
+                            ${VENV_DIR}/bin/dvc pull -v
                         """
                     }
                 }
             }
         }
+
 
         // stage("Build and Push Image to GCR") {
         //     steps {

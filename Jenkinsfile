@@ -36,15 +36,17 @@ pipeline {
 
         stage('DVC Pull'){
             steps{
-                withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
-                    script{
-                        echo 'DVC Pul....'
-                        sh '''
-                        . ${VENV_DIR}/bin/activate
-                        dvc pull
-                        '''
-                    }
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+                    sh '''
+                    echo "Using credentials: $GOOGLE_APPLICATION_CREDENTIALS"
+                    gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+                    gcloud auth list
+                    gsutil ls gs://projanimerecommenderdvc
+                    '''
+                    # Then run your python code
+                    sh 'python your_script.py'
                 }
+
             }
         }
 

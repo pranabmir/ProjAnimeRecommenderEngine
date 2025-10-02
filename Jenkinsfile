@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         VENV_DIR = 'venv'
-        GCP_PROJECT = 'mlops-new-447207'
+        GCP_PROJECT = 'aerial-day-470509-c5'
         GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
         KUBECTL_AUTH_PLUGIN = "/usr/lib/google-cloud-sdk/bin"
     }
@@ -29,6 +29,29 @@ pipeline {
                     pip install -e .
                     pip install  dvc
                     '''
+                }
+            }
+        }
+
+        stage('DVC Pull'){
+            steps{
+                withCredentials([file(credentialsId:'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]){
+                    script{
+                        echo 'DVC Pull....'
+                        sh """
+                        # Activate virtual environment
+                        . ${VENV_DIR}/bin/activate
+
+                        # Export GCP credentials
+                        export GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
+
+                        # Ensure dvc has GCS support
+                        pip install --upgrade "dvc[gcs]"
+
+                        # Pull data
+                        dvc pull
+                        """
+                    }
                 }
             }
         }

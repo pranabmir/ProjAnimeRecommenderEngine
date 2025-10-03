@@ -14,7 +14,8 @@ pipeline {
             steps{
                 script{
                     echo 'Cloning from Github...'
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_token', url: 'https://github.com/pranabmir/ProjAnimeRecommenderEngine.git']])                }
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_token', url: 'https://github.com/pranabmir/ProjAnimeRecommenderEngine.git']])
+                }
             }
         }
 
@@ -34,21 +35,19 @@ pipeline {
         }
 
 
-        stage('DVC Pull') {
-            steps {
-                withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
-                    sh '''
-                    echo "Using credentials: $GOOGLE_APPLICATION_CREDENTIALS"
-                    gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
-                    gcloud auth list
-                    gsutil ls gs://projanimerecommenderdvc
-
-                    # Run Python test
-                    python test_gcs.py
-                    '''
-                }
-            }
-        }
+        // stage('DVC Pull'){
+        //     steps{
+        //         withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
+        //             script{
+        //                 echo 'DVC Pul....'
+        //                 sh '''
+        //                 . ${VENV_DIR}/bin/activate
+        //                 dvc pull
+        //                 '''
+        //             }
+        //         }
+        //     }
+        // }
 
 
         // stage('Build and Push Image to GCR'){

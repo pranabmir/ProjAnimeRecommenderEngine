@@ -48,34 +48,25 @@ pipeline {
         //         }
         //     }
         // }
-        stage('DVC Pull'){
-            steps{
+        stage('DVC Pull') {
+            steps {
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                     script {
                         echo 'Running DVC Pull...'
                         sh '''
-                        # Activate virtual environment
                         . ${VENV_DIR}/bin/activate
-
-                        # Ensure DVC is installed
-                        pip install --upgrade pip
-                        pip install dvc[gcs]
-
-                        # Export credentials for this shell
                         export GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
                         echo "Using GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS"
                         ls -l $GOOGLE_APPLICATION_CREDENTIALS || echo "❌ Credentials file not found!"
-
-                        # Clear old cache (optional)
-                        dvc cache dir --clear
-
-                        # Pull data
+                        
+                        # Pull data from GCS
                         dvc pull
                         '''
                     }
                 }
             }
         }
+
 
         // stage('Build and Push Image to GCR'){
         //     steps{

@@ -55,17 +55,22 @@ pipeline {
                         echo 'Running DVC Pull...'
                         sh '''
                         . ${VENV_DIR}/bin/activate
-                        export GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
+
+                        # Authenticate with gcloud using the service account
+                        gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
+                        gcloud config set project ${GCP_PROJECT}
+
                         echo "Using GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS"
                         ls -l $GOOGLE_APPLICATION_CREDENTIALS || echo "❌ Credentials file not found!"
-                        
-                        # Pull data from GCS
+
+                        # Now DVC will have valid credentials
                         dvc pull
                         '''
                     }
                 }
             }
         }
+
 
 
         // stage('Build and Push Image to GCR'){

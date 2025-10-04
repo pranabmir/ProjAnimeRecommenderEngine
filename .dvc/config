@@ -2,4 +2,4 @@
     remote = myremote
 ['remote "myremote"']
     url = gs://projanimerecommenderdvc/
-    credentialpath = ../gcp_key/aerial-day-470509-c5-6f9f5a09aeea.json
+    

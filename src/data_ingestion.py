@@ -19,7 +19,8 @@ class DataIngestion:
 
     def download_data_from_gcp(self):
         try:
-            client = storage.Client.from_service_account_json(KEY_PATH)
+            # client = storage.Client.from_service_account_json(KEY_PATH)
+            client = storage.Client()
             bucket = client.bucket(self.bucket_name)
             for i in self.file_names:
                 file_path = os.path.join(RAW_DIR,i)

@@ -1,0 +1,12 @@
+2025-10-04 11:35:07,598 - INFO - Starting Data Ingestion
+2025-10-04 11:35:07,612 - INFO - Successfully read yaml file
+2025-10-04 11:35:07,612 - INFO - Starting data ingestion process.....
+2025-10-04 11:35:07,613 - ERROR - Error while downloading Data
+2025-10-04 11:35:07,613 - ERROR - CustomExceptions: Error in E:\Strata_projects\ProjAnimeRecommenderEngine\src\data_ingestion.py, line 22: Error while downloading data
+2025-10-04 11:35:07,613 - INFO - data ingestion code exceution done
+2025-10-04 11:37:49,108 - INFO - Starting Data Ingestion
+2025-10-04 11:37:49,111 - INFO - Successfully read yaml file
+2025-10-04 11:37:49,111 - INFO - Starting data ingestion process.....
+2025-10-04 11:37:55,332 - INFO - Downloading anime.csv file
+2025-10-04 11:38:01,078 - INFO - Downloading anime_with_synopsis.csv file
+2025-10-04 11:42:23,430 - INFO - data ingestion code exceution done
